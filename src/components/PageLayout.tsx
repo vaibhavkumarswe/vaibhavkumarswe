@@ -7,7 +7,7 @@ const PageLayout = ({ children }: { children: ReactNode }) => {
   const [commandOpen, setCommandOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <StickyNav />
       <main className="pt-14">{children}</main>
       <CommandFooter

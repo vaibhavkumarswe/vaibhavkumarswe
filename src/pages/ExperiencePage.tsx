@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { experiences, leadership, education } from "@/data/portfolio";
-import { Users, GitPullRequest, Bug, TrendingUp } from "lucide-react";
+import { GitPullRequestCreate, GitPullRequest, Bug, TrendingUp } from "lucide-react";
 
-const iconMap = [Users, GitPullRequest, Bug, TrendingUp];
+const iconMap = [GitPullRequestCreate, GitPullRequest, Bug, TrendingUp];
 
 const ExperiencePage = () => {
   return (

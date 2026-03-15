@@ -10,7 +10,11 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0, 0, 1] as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.2, 0, 0, 1] as const },
+  },
 };
 
 const ProjectsSection = () => {
@@ -51,14 +55,16 @@ const ProjectsSection = () => {
                 <span className="meta-label px-2.5 py-1 rounded-md bg-primary/10 text-primary">
                   {project.tag}
                 </span>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-1.5 rounded-lg hover:bg-secondary transition-colors opacity-50 group-hover:opacity-100"
-                >
-                  <Github className="w-4 h-4 text-muted-foreground" />
-                </a>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 rounded-lg hover:bg-secondary transition-colors opacity-50 group-hover:opacity-100"
+                  >
+                    <Github className="w-4 h-4 text-muted-foreground" />
+                  </a>
+                )}
               </div>
               <h3 className="text-base sm:text-lg font-medium text-foreground mb-2">
                 {project.title}
@@ -69,7 +75,10 @@ const ProjectsSection = () => {
             </div>
             <div className="mt-4 sm:mt-6 pt-4 border-t border-muted flex gap-2 flex-wrap">
               {project.techStack.map((tech) => (
-                <span key={tech} className="meta-label px-2 py-0.5 rounded bg-secondary">
+                <span
+                  key={tech}
+                  className="meta-label px-2 py-0.5 rounded bg-secondary"
+                >
                   {tech}
                 </span>
               ))}

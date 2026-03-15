@@ -63,7 +63,7 @@ const CommandFooter = ({ isOpen, onToggle }: CommandFooterProps) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2, ease: [0.2, 0, 0, 1] }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md z-50"
+              className="fixed top-1/2 left-5 md:left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md z-50"
             >
               <div className="sprint-card rounded-2xl overflow-hidden">
                 <div className="p-4 border-b border-muted">

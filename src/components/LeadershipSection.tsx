@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Users, GitPullRequest, Bug, TrendingUp } from "lucide-react";
+import { GitPullRequestCreate, GitPullRequest, Bug, TrendingUp } from "lucide-react";
 import { leadership } from "@/data/portfolio";
 
-const iconMap = [Users, GitPullRequest, Bug, TrendingUp];
+const iconMap = [GitPullRequestCreate, GitPullRequest, Bug, TrendingUp];
 
 const containerVariants = {
   hidden: {},
