@@ -14,6 +14,8 @@ export const personal = {
   website: "https://vaibhavkumar.in",
   availableStatus: "Open to Opportunities",
   year: new Date().getFullYear(),
+  resume:
+    "https://drive.google.com/file/d/1hPwdKw6SpR-KEaPuYP2KVxi0-RIx4Zcw/view?usp=drive_link",
 };
 
 export const stats = [
@@ -671,5 +673,5 @@ export const commandActions = [
   { label: "Send Email", shortcut: "E", href: `mailto:${personal.email}` },
   { label: "View GitHub", shortcut: "G", href: personal.github },
   { label: "LinkedIn", shortcut: "L", href: personal.linkedin },
-  { label: "Download CV", shortcut: "D", href: "#" },
+  { label: "Download CV", shortcut: "D", href: personal.resume },
 ];

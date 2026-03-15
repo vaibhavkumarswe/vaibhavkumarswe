@@ -1,5 +1,16 @@
 import { motion } from "framer-motion";
-import { MapPin, Briefcase, Github, Linkedin, Mail, Code2, ArrowDown, Sparkles } from "lucide-react";
+import {
+  AudioWaveform,
+  Coffee,
+  MapPin,
+  Briefcase,
+  Github,
+  Linkedin,
+  Mail,
+  Code2,
+  ArrowDown,
+  Sparkles,
+} from "lucide-react";
 import { personal, stats } from "@/data/portfolio";
 import { Link } from "react-router-dom";
 
@@ -106,7 +117,8 @@ const HeroSection = () => {
               <MapPin className="w-3.5 h-3.5" /> {personal.location}
             </span>
             <span className="flex items-center gap-1.5">
-              <Briefcase className="w-3.5 h-3.5" /> {personal.yearsExp} years exp
+              <Briefcase className="w-3.5 h-3.5" /> {personal.yearsExp} years
+              exp
             </span>
           </motion.div>
 
@@ -123,16 +135,18 @@ const HeroSection = () => {
                   <motion.span
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.7 + i * 0.1, type: "spring" }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.7 + i * 0.1,
+                      type: "spring",
+                    }}
                     className="mono text-2xl sm:text-3xl font-medium text-foreground tabular-nums"
                   >
                     {s.value}
                   </motion.span>
                   <span className="meta-label mt-1">{s.label}</span>
                 </div>
-                {i < stats.length - 1 && (
-                  <div className="w-px h-8 bg-border" />
-                )}
+                {i < stats.length - 1 && <div className="w-px h-8 bg-border" />}
               </div>
             ))}
           </motion.div>
@@ -147,20 +161,22 @@ const HeroSection = () => {
             <div className="flex items-center gap-3">
               <Link
                 to="/projects"
-                className="px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 text-sm font-medium hover-scale"
+                className="px-5 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 text-sm font-medium hover-scale"
               >
                 View Projects
               </Link>
               <a
                 href={`mailto:${personal.email}`}
-                className="px-6 py-3 rounded-xl border border-border bg-background/50 hover:bg-secondary transition-all duration-200 text-sm font-medium text-foreground hover-scale"
+                className="px-6 py-3 rounded-md border border-border bg-background/50 hover:bg-secondary transition-all duration-200 text-sm font-medium text-foreground hover-scale"
               >
                 Get in Touch
               </a>
             </div>
 
             <div className="flex items-center gap-1 ml-0 sm:ml-4">
-              <span className="meta-label text-muted-foreground mr-1 hidden sm:inline">Connect</span>
+              <span className="meta-label text-muted-foreground mr-1 hidden sm:inline">
+                Connect
+              </span>
               {[
                 { href: personal.github, Icon: Github, label: "GitHub" },
                 { href: personal.linkedin, Icon: Linkedin, label: "LinkedIn" },
@@ -188,7 +204,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="hidden lg:block"
         >
-          <div className="sprint-card rounded-2xl p-6 relative overflow-hidden">
+          <div className="sprint-card rounded-2xl p-4 relative overflow-hidden">
             {/* Card inner glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-status-green/5 pointer-events-none" />
 
@@ -221,10 +237,14 @@ const HeroSection = () => {
                       <span>
                         {line.split('"').map((part, j) =>
                           j % 2 === 0 ? (
-                            <span key={j} className="text-muted-foreground">{part}</span>
+                            <span key={j} className="text-muted-foreground">
+                              {part}
+                            </span>
                           ) : (
-                            <span key={j} className="text-primary">"{part}"</span>
-                          )
+                            <span key={j} className="text-primary">
+                              "{part}"
+                            </span>
+                          ),
                         )}
                       </span>
                     ) : (
@@ -244,12 +264,16 @@ const HeroSection = () => {
             className="mt-4 flex justify-end gap-3"
           >
             <div className="sprint-card rounded-xl px-4 py-3 flex items-center gap-3">
-              <span className="text-2xl font-bold text-primary mono">90+</span>
-              <span className="meta-label">Lighthouse</span>
+              <span className="text-2xl font-bold text-primary mono">
+                <AudioWaveform />
+              </span>
+              <span className="meta-label">NIALL HORAN</span>
             </div>
             <div className="sprint-card rounded-xl px-4 py-3 flex items-center gap-3">
-              <span className="text-2xl font-bold text-status-green mono">A+</span>
-              <span className="meta-label">Perf Grade</span>
+              <span className="text-2xl font-bold text-status-green mono">
+                <Coffee />
+              </span>
+              <span className="meta-label">THE BEANS</span>
             </div>
           </motion.div>
         </motion.div>

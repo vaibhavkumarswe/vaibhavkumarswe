@@ -1,6 +1,14 @@
 import { useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Command, Download, Mail, Github, Linkedin } from "lucide-react";
+import {
+  Command,
+  Download,
+  Mail,
+  Github,
+  Linkedin,
+  Heart,
+  Coffee,
+} from "lucide-react";
 import { personal, commandActions } from "@/data/portfolio";
 
 interface CommandFooterProps {
@@ -8,7 +16,12 @@ interface CommandFooterProps {
   onToggle: () => void;
 }
 
-const iconMap: Record<string, typeof Mail> = { E: Mail, G: Github, L: Linkedin, D: Download };
+const iconMap: Record<string, typeof Mail> = {
+  E: Mail,
+  G: Github,
+  L: Linkedin,
+  D: Download,
+};
 
 const CommandFooter = ({ isOpen, onToggle }: CommandFooterProps) => {
   const handleKeyDown = useCallback(
@@ -19,11 +32,13 @@ const CommandFooter = ({ isOpen, onToggle }: CommandFooterProps) => {
       }
       if (e.key === "Escape" && isOpen) onToggle();
       if (isOpen) {
-        const action = commandActions.find((a) => a.shortcut.toLowerCase() === e.key.toLowerCase());
+        const action = commandActions.find(
+          (a) => a.shortcut.toLowerCase() === e.key.toLowerCase(),
+        );
         if (action) window.open(action.href, "_blank");
       }
     },
-    [isOpen, onToggle]
+    [isOpen, onToggle],
   );
 
   useEffect(() => {
@@ -35,14 +50,33 @@ const CommandFooter = ({ isOpen, onToggle }: CommandFooterProps) => {
     <>
       <footer className="px-4 sm:px-6 md:px-16 lg:px-24 py-10 sm:py-16 border-t border-muted">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="meta-label">© {personal.year} {personal.name} — All rights reserved</span>
+          <div className="flex flex-col">
+            <span className="meta-label flex items-center gap-1">
+              <span className="text-primary px-2 text-base">©</span>{" "}
+              {personal.year} {personal.name} — All rights reserved
+            </span>
+            <span className="meta-label flex pl-9">
+              Made with{" "}
+              <span className="text-red-500 px-2">
+                <Heart width={14} height={14} />
+              </span>{" "}
+              and{" "}
+              <span className="text-yellow-500 px-2">
+                <Coffee width={14} height={14} />
+              </span>
+            </span>
+          </div>
           <button
             onClick={onToggle}
             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary hover:bg-muted transition-colors duration-200"
           >
-            <Command className="w-3.5 h-3.5 text-muted-foreground" />
+            {/* <Command className="w-3.5 h-3.5 text-muted-foreground" /> */}
             <span className="mono text-xs text-muted-foreground">
-              Press <kbd className="px-1.5 py-0.5 rounded bg-background text-foreground text-[10px] ml-1">K</kbd> to connect
+              Press{" "}
+              <kbd className="px-1.5 py-0.5 rounded bg-background text-foreground text-[10px] ml-1">
+                K
+              </kbd>{" "}
+              to connect
             </span>
           </button>
         </div>
@@ -63,7 +97,7 @@ const CommandFooter = ({ isOpen, onToggle }: CommandFooterProps) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2, ease: [0.2, 0, 0, 1] }}
-              className="fixed top-1/2 left-5 md:left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md z-50"
+              className="fixed top-1/3 left-5 md:left-1/3 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md z-50"
             >
               <div className="sprint-card rounded-2xl overflow-hidden">
                 <div className="p-4 border-b border-muted">
@@ -82,7 +116,9 @@ const CommandFooter = ({ isOpen, onToggle }: CommandFooterProps) => {
                       >
                         <div className="flex items-center gap-3">
                           <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                          <span className="text-sm text-foreground">{action.label}</span>
+                          <span className="text-sm text-foreground">
+                            {action.label}
+                          </span>
                         </div>
                         <kbd className="mono text-[10px] px-2 py-1 rounded bg-secondary text-muted-foreground">
                           {action.shortcut}
