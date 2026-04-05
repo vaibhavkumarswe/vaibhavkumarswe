@@ -297,14 +297,22 @@ export const navLinks = [
   { label: "Home", path: "/" },
   { label: "Experience", path: "/experience" },
   { label: "Projects", path: "/projects" },
-  // { label: "Blog", path: "/blog" },
+  { label: "Blog", path: "/blog" },
   { label: "Skills", path: "/skills" },
   { label: "Contact", path: "/contact" },
+];
+
+export const commandActions = [
+  { label: "Send Email", shortcut: "E", href: `mailto:${personal.email}` },
+  { label: "View GitHub", shortcut: "G", href: personal.github },
+  { label: "LinkedIn", shortcut: "L", href: personal.linkedin },
+  { label: "Download CV", shortcut: "D", href: personal.resume },
 ];
 
 export const blogPosts = [
   {
     date: "Mar 2026",
+    draft: true,
     title: "Building Scalable Design Systems with React & TypeScript",
     excerpt:
       "How I architected a component library serving 100K+ users with zero-config theming, accessibility baked in, and tree-shaking support.",
@@ -357,6 +365,7 @@ export const blogPosts = [
   },
   {
     date: "Feb 2026",
+    draft: true,
     title: "The Art of Performance: Core Web Vitals in Production",
     excerpt:
       "Practical strategies that improved LCP by 40% and INP by 60% across a fintech platform — code splitting, lazy hydration, and beyond.",
@@ -410,6 +419,7 @@ export const blogPosts = [
   },
   {
     date: "Jan 2026",
+    draft: true,
     title: "RBAC Done Right: Role-Based Access in Modern SPAs",
     excerpt:
       "A deep dive into implementing secure, scalable role-based access control for React applications with 6+ user roles.",
@@ -458,6 +468,7 @@ export const blogPosts = [
   },
   {
     date: "Dec 2025",
+    draft: true,
     title: "Browser Extensions with Plasmo: A Senior Engineer's Guide",
     excerpt:
       "Lessons learned building enterprise Chrome extensions — content script injection, payload encryption, and cross-origin communication.",
@@ -503,6 +514,7 @@ export const blogPosts = [
   },
   {
     date: "Nov 2025",
+    draft: false,
     title: "Why I Stopped Using Redux (And When I Still Do)",
     excerpt:
       "After 4 years of Redux, here's my honest take on state management in 2025 — Zustand, Jotai, React Query, and when Redux Toolkit still wins.",
@@ -541,6 +553,7 @@ export const blogPosts = [
   },
   {
     date: "Oct 2025",
+    draft: true,
     title: "From TCS to FAANG-Ready: My Frontend Engineering Journey",
     excerpt:
       "How I went from building HTML pages at an internship to leading frontend architecture at a fintech serving 100K+ users.",
@@ -589,6 +602,7 @@ export const blogPosts = [
   },
   {
     date: "Sep 2025",
+    draft: true,
     title: "Micro-Frontends: When Monoliths Fight Back",
     excerpt:
       "A practical breakdown of micro-frontend architecture — module federation, shared dependencies, and the hidden costs nobody talks about.",
@@ -626,7 +640,8 @@ export const blogPosts = [
     ],
   },
   {
-    date: "Aug 2025",
+    date: "March 2026",
+    draft: false,
     title: "Zero-Dependency React Components: The StateMorph Story",
     excerpt:
       "How I built and published an NPM package that eliminates loading/error/empty state ternary hell — design decisions and trade-offs.",
@@ -667,11 +682,206 @@ export const blogPosts = [
       },
     ],
   },
-];
-
-export const commandActions = [
-  { label: "Send Email", shortcut: "E", href: `mailto:${personal.email}` },
-  { label: "View GitHub", shortcut: "G", href: personal.github },
-  { label: "LinkedIn", shortcut: "L", href: personal.linkedin },
-  { label: "Download CV", shortcut: "D", href: personal.resume },
+  {
+    date: "Jan 2026",
+    draft: false,
+    title: "CSS Sprites 2026: Boost Site Speed by 40% with One Image",
+    excerpt:
+      "CSS sprites slash HTTP requests and supercharge load times. Complete guide with code examples, tools, and when modern alternatives beat sprites.",
+    slug: "css-sprites-performance-guide-2026",
+    tags: ["CSS", "Performance", "Optimization", "Frontend"],
+    readTime: "7 min",
+    content: [
+      {
+        type: "paragraph",
+        text: "In 2026, HTTP/3 and CDNs make individual images fast, but CSS sprites still deliver 30-40% faster icon loading for icons, social buttons, and UI elements. One image file replaces 20+ HTTP requests.",
+      },
+      { type: "heading", text: "Why Sprites Still Win" },
+      {
+        type: "paragraph",
+        text: "Each image = 1 HTTP request (even with HTTP/3 multiplexing). 50 social icons = 50 requests. One sprite = 1 request. Critical for Core Web Vitals LCP scores and mobile networks.",
+      },
+      {
+        type: "paragraph",
+        text: "Best for: Icons, social media buttons, flags, arrows. Skip for: Hero images, user photos, responsive images (use `<picture>`).",
+      },
+      { type: "heading", text: "Step 1: Create Sprite Sheet" },
+      {
+        type: "paragraph",
+        text: "Use free tools like Spritegen.website or Figma's sprite export. Arrange icons horizontally (left-to-right) with 4px gutters.",
+      },
+      {
+        type: "code",
+        text: "// Example: 5 icons (32x32px each) = 160px wide sprite\n// icons.png: [home][search][cart][user][menu]",
+      },
+      { type: "heading", text: "Step 2: HTML Structure" },
+      {
+        type: "paragraph",
+        text: "No `<img>` tags — use semantic spans/divs with background images.",
+      },
+      {
+        type: "code",
+        text: '<nav class="icons">\n  <span class="icon-home" title="Home"></span>\n  <span class="icon-search" title="Search"></span>\n  <span class="icon-cart" title="Cart"></span>\n</nav>',
+      },
+      { type: "heading", text: "Step 3: CSS Implementation" },
+      {
+        type: "paragraph",
+        text: "Position with `background-position`. Negative X moves right in sprite.",
+      },
+      {
+        type: "code",
+        text: ".icons {\n  background: url('/icons.png') no-repeat;\n}\n\n.icon-home {\n  width: 32px; height: 32px;\n  background-position: 0 0;\n}\n.icon-search {\n  background-position: -40px 0;  /* 32px + 8px gutter */\n}\n.icon-cart {\n  background-position: -80px 0;\n}\n\n/* Hover states (second row in sprite) */\n.icon-home:hover {\n  background-position: 0 -40px;\n}",
+      },
+      { type: "heading", text: "Responsive Sprites" },
+      {
+        type: "paragraph",
+        text: "Scale sprites with `transform` or serve mobile-optimized sheets.",
+      },
+      {
+        type: "code",
+        text: "@media (max-width: 768px) {\n  .icon-home {\n    transform: scale(0.75);\n    width: 24px; height: 24px;\n  }\n}",
+      },
+      { type: "heading", text: "Modern Alternatives" },
+      {
+        type: "paragraph",
+        text: "2026 stack: SVG sprites (`<use>`), Icon fonts (but accessibility issues), Heroicons/Vite icons (build-time bundling), or CSS custom properties with `mask`.",
+      },
+      {
+        type: "paragraph",
+        text: "Sprites win when you control the full sprite sheet and need maximum paint speed.",
+      },
+      {
+        type: "paragraph",
+        text: "Test with Lighthouse. Sprites consistently boost Performance by 10-15 points.",
+      },
+    ],
+  },
+  {
+    date: "Apr 2026",
+    draft: false,
+    title: "CSR vs SSR: Rendering Strategies Explained",
+    excerpt:
+      "CSR, SSR, Selective Hydration, and Streaming—pros, cons, and when to use each for optimal performance and UX.",
+    slug: "csr-vs-ssr-rendering-strategies",
+    tags: ["React", "Performance", "SSR", "Next.js", "Web Dev"],
+    readTime: "5 min",
+    content: [
+      {
+        type: "paragraph",
+        text: "This blog will help you understand different rendering techniques, their pros/cons, and when to use which.",
+      },
+      {
+        type: "heading",
+        text: "What is CSR?",
+      },
+      {
+        type: "paragraph",
+        text: "Client-Side Rendering (CSR) means the browser downloads a minimal HTML shell and then a big JavaScript bundle that entirely constructs and hydrates the page on the client all at once—making the page interactive as soon as it loads.",
+      },
+      {
+        type: "subheading",
+        text: "CSR Pros & Cons",
+      },
+      {
+        type: "paragraph",
+        text: "Pros: Feels very dynamic and SPA-like after the initial load.",
+      },
+      {
+        type: "paragraph",
+        text: "Cons: Since we download the whole code to the client side and render it right there, it might show a loading screen at first. For complex dependencies, the page could take a long time to load and then show all the hydrated content at once.",
+      },
+      {
+        type: "paragraph",
+        text: "In CSR, you pay an upfront cost: the user waits for JS, then the whole app renders at once with hydration already done.",
+      },
+      {
+        type: "heading",
+        text: "What is SSR?",
+      },
+      {
+        type: "paragraph",
+        text: 'In Server-Side Rendering (SSR), the server generates the full HTML of the page and sends it down. The browser shows content faster, and only then does the JavaScript "hydrate" that HTML to make it interactive.',
+      },
+      {
+        type: "paragraph",
+        text: "So the content is visible upfront very fast, but the page still waits to become interactive—for a bit, buttons and user interactions aren't there yet as React waits for its JS and then hydrates the page.",
+      },
+      {
+        type: "subheading",
+        text: "SSR Pros & Cons",
+      },
+      {
+        type: "paragraph",
+        text: "Pros: Better SEO, faster First Contentful Paint (FCP), and better perceived performance.",
+      },
+      {
+        type: "paragraph",
+        text: "Cons: You still need to hydrate the entire page (often all at once), which can block the main thread and delay interactivity.",
+      },
+      {
+        type: "heading",
+        text: "SSR with Selective Hydration",
+      },
+      {
+        type: "paragraph",
+        text: "Selective hydration is a refinement of SSR where React does not hydrate the entire page immediately. Instead, it hydrates parts of the page on demand, based on visibility, priority, or user interaction.",
+      },
+      {
+        type: "paragraph",
+        text: "With Suspense and fallbacks, you can actually suspend components that take a long time to load. In the meantime, React hydrates other components without waiting for that heavy one, and hydrates it on demand when it's ready.",
+      },
+      {
+        type: "paragraph",
+        text: "React 18 introduced this via hydrateRoot and Suspense. You wrap dynamic parts with <Suspense>, and React starts hydrating chunks as soon as their HTML and JS arrive, prioritizing what the user interacts with.",
+      },
+      {
+        type: "paragraph",
+        text: "The key benefit: Time-to-Interactive improves because React doesn't saturate the main thread hydrating everything at once.",
+      },
+      {
+        type: "heading",
+        text: "SSR with Streaming + Selective Hydration",
+      },
+      {
+        type: "paragraph",
+        text: "Now combine SSR, streaming HTML, and selective hydration. This is the modern pattern popularized by React 18 and used in Next.js and similar stacks.",
+      },
+      {
+        type: "subheading",
+        text: "How streaming works",
+      },
+      {
+        type: "paragraph",
+        text: "Instead of waiting for the entire page to render on the server, streaming SSR sends HTML in chunks as soon as portions are ready.",
+      },
+      {
+        type: "paragraph",
+        text: "Server starts by sending a fast skeleton or header. Then it streams sections (hero, main content, sidebar) as they resolve. Each chunk can be paired with its own <script>, so hydration can start on the current element.",
+      },
+      {
+        type: "paragraph",
+        text: "Streaming reduces the time between the first byte and the first paint: the user sees content while the server is still working.",
+      },
+      {
+        type: "subheading",
+        text: "Streaming + selective hydration together",
+      },
+      {
+        type: "paragraph",
+        text: "When you combine streaming SSR with selective hydration, you get: Early content via streaming HTML. Incremental interactivity via selective hydration (Suspense + fallback) of visible or interacted-with components.",
+      },
+      {
+        type: "paragraph",
+        text: 'For example: A product page might stream the header, product card, and reviews in chunks. Hydration starts for the "Add to Cart" button as soon as its HTML and JS arrive, even if the rest of the page is still hydrating.',
+      },
+      {
+        type: "paragraph",
+        text: "This setup closes the gap between Largest Contentful Paint (LCP) and Time-to-Interactive (TTI), giving both good perceived performance and a highly responsive UX.",
+      },
+      {
+        type: "paragraph",
+        text: "Now with this explanation, you can choose which pattern to use when!",
+      },
+    ],
+  },
 ];

@@ -14,6 +14,8 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.2, 0, 0, 1] as const } },
 };
 
+const filteredPosts = blogPosts.filter((post) => !post.draft).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
 const BlogPage = () => {
   return (
     <>
@@ -50,7 +52,7 @@ const BlogPage = () => {
           animate="show"
           className="mt-10 md:mt-14"
         >
-          {blogPosts.map((post) => (
+          {filteredPosts.map((post) => (
             <Link
               key={post.slug}
               to={`/blog/${post.slug}`}
@@ -60,10 +62,10 @@ const BlogPage = () => {
                 <span className="text-xs font-mono text-muted-foreground">
                   {post.date}
                 </span>
-                <span className="text-[10px] text-muted-foreground/60">•</span>
+                {/* <span className="text-[10px] text-muted-foreground/60">•</span>
                 <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60">
                   {post.readTime} read
-                </span>
+                </span> */}
               </div>
 
               <h3 className="text-base sm:text-lg md:text-xl font-medium text-primary group-hover:underline underline-offset-4 decoration-primary/40 transition-all flex items-center gap-1.5">

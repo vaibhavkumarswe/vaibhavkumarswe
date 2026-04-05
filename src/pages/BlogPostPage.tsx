@@ -40,10 +40,10 @@ const BlogPostPage = () => {
             <Calendar className="w-3.5 h-3.5" />
             {post.date}
           </span>
-          <span className="flex items-center gap-1.5">
+          {/* <span className="flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5" />
             {post.readTime} read
-          </span>
+          </span> */}
         </div>
 
         {/* Title */}
@@ -79,6 +79,16 @@ const BlogPostPage = () => {
                 </h2>
               );
             }
+            if(block.type === "subheading") {
+              return (
+                <h3
+                  key={i}
+                  className="text-base sm:text-md font-medium text-foreground mt-6 mb-2"
+                >
+                  {block.text}
+                </h3>
+              );
+            }
             if (block.type === "code") {
               return (
                 <pre
@@ -105,12 +115,17 @@ const BlogPostPage = () => {
           <div className="sprint-card rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <span className="text-sm font-bold text-primary">
-                {personal.firstName[0]}{personal.lastName[0]}
+                {personal.firstName[0]}
+                {personal.lastName[0]}
               </span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground">{personal.name}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{personal.role} · {personal.location}</p>
+              <p className="text-sm font-medium text-foreground">
+                {personal.name}
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {personal.role} · {personal.location}
+              </p>
             </div>
             <div className="flex gap-2">
               <a
@@ -136,9 +151,15 @@ const BlogPostPage = () => {
         {/* Navigation to next/prev */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
           {(() => {
-            const idx = blogPosts.findIndex((p) => p.slug === slug);
-            const prev = idx > 0 ? blogPosts[idx - 1] : null;
-            const next = idx < blogPosts.length - 1 ? blogPosts[idx + 1] : null;
+            const filteredPosts = blogPosts
+              .filter((post) => !post.draft)
+              .sort(
+                (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime(),
+              );
+            const idx = filteredPosts.findIndex((p) => p.slug === slug);
+            const prev = idx > 0 ? filteredPosts[idx - 1] : null;
+            const next = idx < filteredPosts.length - 1 ? filteredPosts[idx + 1] : null;
             return (
               <>
                 {prev ? (
@@ -146,23 +167,31 @@ const BlogPostPage = () => {
                     to={`/blog/${prev.slug}`}
                     className="sprint-card rounded-xl p-4 group hover:bg-secondary/30 transition-colors"
                   >
-                    <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">← Previous</span>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">
+                      ← Previous
+                    </span>
                     <p className="text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors line-clamp-1">
                       {prev.title}
                     </p>
                   </Link>
-                ) : <div />}
+                ) : (
+                  <div />
+                )}
                 {next ? (
                   <Link
                     to={`/blog/${next.slug}`}
                     className="sprint-card rounded-xl p-4 text-right group hover:bg-secondary/30 transition-colors"
                   >
-                    <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">Next →</span>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">
+                      Next →
+                    </span>
                     <p className="text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors line-clamp-1">
                       {next.title}
                     </p>
                   </Link>
-                ) : <div />}
+                ) : (
+                  <div />
+                )}
               </>
             );
           })()}
