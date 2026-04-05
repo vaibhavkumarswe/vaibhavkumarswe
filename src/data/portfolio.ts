@@ -641,7 +641,7 @@ export const blogPosts = [
   },
   {
     date: "March 2026",
-    draft: false,
+    draft: true,
     title: "Zero-Dependency React Components: The StateMorph Story",
     excerpt:
       "How I built and published an NPM package that eliminates loading/error/empty state ternary hell — design decisions and trade-offs.",
