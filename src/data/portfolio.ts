@@ -311,6 +311,7 @@ export const commandActions = [
 
 export const blogPosts = [
   {
+    id: 1,
     date: "Mar 2026",
     draft: true,
     title: "Building Scalable Design Systems with React & TypeScript",
@@ -364,6 +365,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 2,
     date: "Feb 2026",
     draft: true,
     title: "The Art of Performance: Core Web Vitals in Production",
@@ -418,6 +420,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 3,
     date: "Jan 2026",
     draft: true,
     title: "RBAC Done Right: Role-Based Access in Modern SPAs",
@@ -467,6 +470,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 4,
     date: "Dec 2025",
     draft: true,
     title: "Browser Extensions with Plasmo: A Senior Engineer's Guide",
@@ -513,6 +517,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 5,
     date: "Nov 2025",
     draft: false,
     title: "Why I Stopped Using Redux (And When I Still Do)",
@@ -552,6 +557,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 6,
     date: "Oct 2025",
     draft: true,
     title: "From TCS to FAANG-Ready: My Frontend Engineering Journey",
@@ -601,6 +607,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 7,
     date: "Sep 2025",
     draft: true,
     title: "Micro-Frontends: When Monoliths Fight Back",
@@ -640,6 +647,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 8,
     date: "March 2026",
     draft: true,
     title: "Zero-Dependency React Components: The StateMorph Story",
@@ -683,6 +691,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 9,
     date: "Jan 2026",
     draft: false,
     title: "CSS Sprites 2026: Boost Site Speed by 40% with One Image",
@@ -757,6 +766,7 @@ export const blogPosts = [
     ],
   },
   {
+    id: 10,
     date: "Apr 2026",
     draft: false,
     title: "CSR vs SSR: Rendering Strategies Explained",
@@ -881,6 +891,275 @@ export const blogPosts = [
       {
         type: "paragraph",
         text: "Now with this explanation, you can choose which pattern to use when!",
+      },
+    ],
+  },
+  {
+    id: 11,
+    date: "Apr 2026",
+    draft: false,
+    title: "Mastering INP: Improve Web Responsiveness",
+    excerpt:
+      "INP explained: Core Web Vital metric, its phases, and proven techniques including React useTransition to boost interaction speed and SEO.",
+    slug: "what-is-inp-how-to-improve",
+    tags: [
+      "Performance",
+      "INP",
+      "React",
+      "Core Web Vitals",
+      "Web Dev",
+      "Next.js",
+    ],
+    readTime: "9 min",
+    content: [
+      {
+        type: "paragraph",
+        text: "INP, or Interaction to Next Paint, measures how quickly a website responds to user interactions like clicks, taps, and key presses. Improving INP is crucial for user experience and SEO rankings.",
+      },
+      {
+        type: "heading",
+        text: "What is INP?",
+      },
+      {
+        type: "paragraph",
+        text: "INP is a Core Web Vital metric that tracks the time from a user's input (click, tap, keypress) to the next visual update on screen, capturing end-to-end responsiveness.",
+      },
+      {
+        type: "paragraph",
+        text: "Good INP scores under 200ms; 200-500ms needs improvement; over 500ms is poor.",
+      },
+      {
+        type: "heading",
+        text: "Why INP Matters",
+      },
+      {
+        type: "paragraph",
+        text: "Poor INP creates laggy interactions that frustrate users, raise bounce rates, and hurt SEO rankings since Google uses it for page experience signals.",
+      },
+      {
+        type: "paragraph",
+        text: "It impacts real-world engagement on interactive pages like e-commerce or apps, where slow responses directly degrade conversions.",
+      },
+      {
+        type: "heading",
+        text: "Core Phases of INP",
+      },
+      {
+        type: "subheading",
+        text: "Input Delay",
+      },
+      {
+        type: "paragraph",
+        text: "Time until browser processes input. Minimize main thread blocking tasks over 50ms.",
+      },
+      {
+        type: "subheading",
+        text: "Processing Time",
+      },
+      {
+        type: "paragraph",
+        text: "Script execution for the interaction. Optimize heavy JavaScript execution.",
+      },
+      {
+        type: "subheading",
+        text: "Paint Time",
+      },
+      {
+        type: "paragraph",
+        text: "Rendering visual feedback. Reduce layout shifts and heavy styles.",
+      },
+      {
+        type: "heading",
+        text: "Ways to Improve INP",
+      },
+      {
+        type: "list",
+        items: [
+          "Use code splitting and tree shaking to load only necessary code",
+          "Defer non-critical scripts with async or defer",
+          "Offload work to Web Workers for CPU-intensive tasks",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Break Long Tasks",
+      },
+      {
+        type: "paragraph",
+        text: "Split JavaScript tasks exceeding 50ms into smaller chunks using setTimeout, requestIdleCallback, or scheduler.postTask.",
+      },
+      {
+        type: "code",
+        language: "js",
+        text: `// > Long blocking task (200ms+)
+function processLargeArray() {
+  for (let i = 0; i < 1000000; i++) {
+    // Heavy computation
+  }
+}
+
+// > Break into chunks with setTimeout
+function processLargeArray() {
+  let i = 0;
+  function processChunk() {
+    const start = i;
+    while (i < 1000000 && performance.now() - start < 50) {
+      // Heavy computation
+      i++;
+    }
+    if (i < 1000000) {
+      setTimeout(processChunk, 0);
+    }
+  }
+  setTimeout(processChunk, 0);
+}`,
+      },
+      {
+        type: "subheading",
+        text: "Optimize JavaScript Execution",
+      },
+      {
+        type: "code",
+        language: "js",
+        text: `// > Code splitting with dynamic imports
+const LazyComponent = React.lazy(() => import('./HeavyComponent'));
+
+// > Tree shaking - only export what you use
+// vite.config.js or webpack config
+export { specificFunction } from './utils'; // > Tree shaken
+
+// > Web Workers for CPU tasks
+const worker = new Worker('heavy-computation.js');
+worker.postMessage(data);`,
+      },
+      {
+        type: "code",
+        language: "html",
+        text: `<!-- > Defer non-critical scripts -->
+<script defer src="analytics.js"></script>
+<script async src="ads.js"></script>`,
+      },
+      {
+        type: "subheading",
+        text: "Reduce Main Thread Blocking",
+      },
+      {
+        type: "code",
+        language: "js",
+        text: `// > Throttle scroll handler
+function throttle(fn, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn.apply(this, args), wait);
+  };
+}
+
+window.addEventListener('scroll', throttle(handleScroll, 16));`,
+      },
+      {
+        type: "subheading",
+        text: "Enhance Input Handling",
+      },
+      {
+        type: "code",
+        language: "js",
+        text: `// > Check for pending input
+function handleInput(e) {
+  if ('isInputPending' in window && window.isInputPending()) {
+    // Yield to input
+    queueMicrotask(() => handleInput(e));
+    return;
+  }
+  // Process input
+  processInput(e.target.value);
+}`,
+      },
+      {
+        type: "subheading",
+        text: "Optimize Rendering and Assets",
+      },
+      {
+        type: "code",
+        language: "html",
+        text: `<-- > Lazy loading images -->
+<img src="hero.jpg" loading="lazy" />
+<img src="gallery.jpg" loading="lazy" />`,
+      },
+      {
+        type: "code",
+        language: "css",
+        text: `/* > Unused CSS elimination (PurgeCSS) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Only used classes survive purge */
+.btn { @apply px-4 py-2; }`,
+      },
+      {
+        type: "subheading",
+        text: "React useTransition (React 18+)",
+      },
+      {
+        type: "paragraph",
+        text: "Leverage useTransition to mark non-urgent state updates as concurrent, preventing heavy re-renders from blocking user inputs.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        text: `import { useState, useTransition } from 'react';
+
+function SearchApp() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [isPending, startTransition] = useTransition();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuery = e.target.value;
+    setQuery(newQuery); // Urgent: instant feedback
+    startTransition(() => {
+      // Deferred: heavy filter without lag
+      setResults(heavyFilter(data, newQuery));
+    });
+  };
+
+  return (
+    <>
+      <input onChange={handleChange} value={query} />
+      {isPending && <div>Updating...</div>}
+      <ul>{results.map(item => <li key={item.id}>{item.name}</li>)}</ul>
+    </>
+  );
+}`,
+      },
+      {
+        type: "paragraph",
+        text: "Perfect for search inputs and forms. Combine with useDeferredValue for lists and dynamic imports for code splitting.",
+      },
+      {
+        type: "subheading",
+        text: "Platform-Specific Tips",
+      },
+      {
+        type: "paragraph",
+        text: "WordPress: Deactivate unused plugins and enable performance modes.",
+      },
+      {
+        type: "paragraph",
+        text: "React/Next.js: Leverage Server-Side Rendering, code splitting via dynamic imports, and concurrent features like useTransition.",
+      },
+      {
+        type: "heading",
+        text: "Measuring and Monitoring INP",
+      },
+      {
+        type: "paragraph",
+        text: "Use Chrome DevTools (Performance panel), Lighthouse, or tools like DebugBear/Web Vitals Chrome extension for field data via Real User Monitoring (RUM).",
+      },
+      {
+        type: "paragraph",
+        text: "Track aggregated scores in Google Search Console CrUX dashboard for SEO insights.",
       },
     ],
   },
