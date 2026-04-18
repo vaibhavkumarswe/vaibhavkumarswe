@@ -1,93 +1,69 @@
-# Portfolio App
+<div align="center">
 
-A modern portfolio website built with React, TypeScript, and Vite. This project showcases a personal brand with project case studies, work experience, skills, blog posts, and contact information.
+# Hi there, I'm Vaibhav Kumar 👋
 
-## Overview
+**Senior Software Engineer | React, JavaScript, TypeScript, Node, Express, MongoDB, Redux, RTK | Hyderabad, India**
 
-This app includes:
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=vaibhavkumarswe&show_icons=true&theme=radical&hide_border=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=vaibhavkumarswe&layout=compact&theme=radical&hide_border=true)
 
-- Landing / Home page with hero section and featured content
-- Projects page with portfolio case studies and tech stack details
-- Experience page summarizing work history and achievements
-- Skills page presenting technical competencies and tools
-- Blog page with articles and individual post detail pages
-- Contact page with a clear call-to-action and outreach section
-- Smooth page transitions and animated UI components
+[![Profile Views](https://komarev.com/ghpvc/?username=vaibhavkumar&color=radical)](https://github.com/vaibhavkumarswe)
 
-## Features
+</div>
 
-- Responsive layout for mobile, tablet, and desktop
-- Client-side routing with animated transitions using `react-router-dom` and `framer-motion`
-- SEO metadata management using `react-helmet-async`
-- Custom UI primitives built with Radix UI and Tailwind CSS
-- Reusable component library and page layout structure
-- Theme-aware styling and polished interactive elements
-- Accessible navigation, keyboard focus support, and semantic markup
+## 🚀 About Me
 
-## Tech Stack
+Passionate Senior Software Engineer specializing in **React, TypeScript, Redux Toolkit**, and **web performance optimization**. Building fast, scalable PWAs with Next.js, Tailwind CSS, and modern web APIs.
 
-- Vite
-- React
-- TypeScript
-- Tailwind CSS
-- React Router DOM
-- Framer Motion
-- React Helmet Async
-- Radix UI primitives
-- Lucide Icons
-- React Query
-- Sonner toast notifications
-- Recharts
+- 🔭 Currently optimizing frontend performance and exploring AI integrations
+- 🌱 Learning advanced SSR/CSR patterns and selective hydration
+- 💼 Open to senior software roles & collaborations
+- 📝 Active technical blogger on LinkedIn
+- ♟️ Chess enthusiast & HackerRank solver
 
-## Project Structure
+## 🛠️ Tech Stack
 
-- `src/App.tsx` — app routing, providers, and page layout
-- `src/main.tsx` — app entry point
-- `src/pages/` — route page components
-- `src/components/` — reusable sections and layout primitives
-- `src/components/ui/` — shared UI components and Radix-based primitives
-- `src/data/portfolio.ts` — content data for projects, blog posts, and experience
+| **Frontend** | **State Management** | **Tools & Deployment** | **Backend** |
+|-------------|---------------------|----------------------|-------------------|
+| React, Next.js, TypeScript | Redux, RTK/Zustand | Tailwind CSS, Vercel, Hostinger | Node.js, Express, Spring |
+| Performance Optimization | Web Storage APIs | SEO | AI Applications |
 
-## Getting Started
+## 🔥 Featured Projects
 
-### Install dependencies
+### [Performance Blog](https://vaibhavkumar.in/blog)
+Technical guides on Redux optimization, SSR techniques, and web performance.
 
-```bash
-npm install
+## 📫 Connect with Me
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=www&logoColor=white&link=https://vaibhavkumar.in)](https://vaibhavkumar.in)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&link=https://linkedin.com/in/vaibhavkumarswe)](https://linkedin.com/in/vaibhavkumar)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/vaibhavkumarswe)](https://twitter.com/vaibhavkumarswe)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&link=mailto:vaibhavkumarswe@gmail.com)](mailto:vaibhavkumarswe@gmail.com)
+
+</div>
+
+## 📊 GitHub Stats
+
+<div align="center">
+  
+![Metrics](https://github-readme-stats.vercel.app/api?username=vaibhavkumarswe&show_icons=true&theme=radical&hide_border=true)
+![Activity Graph](https://github-readme-streak-stats.herokuapp.com/?user=vaibhavkumarswe&theme=radical)
+
+</div>
+
+---
+
+<div align="center">
+  
+**⚡ Currently jamming to:**
+```javascript
+const music = "Tech podcasts & Niall Horan beats";
 ```
 
-### Start development server
+**🏢 Based in:** Hyderabad, India
 
-```bash
-npm run dev
-```
+</div>
 
-Open the app at `http://localhost:8080`.
-
-### Build for production
-
-```bash
-npm run build
-```
-
-### Preview production build
-
-```bash
-npm run preview
-```
-
-### Run linting
-
-```bash
-npm run lint
-```
-
-### Run tests
-
-```bash
-npm run test
-```
-
-## Notes
-
-This project uses Vite instead of Webpack/Babel, and it is configured for a modern React + TypeScript development workflow.
+*🔥 Say hello: vaibhavkumarswe@gmail.com*
