@@ -23,7 +23,7 @@ const BlogPostPage = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4, ease: [0.2, 0, 0, 1] }}
-        className="px-4 sm:px-6 md:px-16 lg:px-24 py-12 md:py-20 max-w-3xl"
+        className="px-4 sm:px-6 md:px-16 lg:px-24 py-12 md:py-20 max-w-5xl mx-auto"
       >
         {/* Back link */}
         <Link
@@ -79,7 +79,7 @@ const BlogPostPage = () => {
                 </h2>
               );
             }
-            if(block.type === "subheading") {
+            if (block.type === "subheading") {
               return (
                 <h3
                   key={i}
@@ -97,6 +97,18 @@ const BlogPostPage = () => {
                 >
                   <code>{block.text}</code>
                 </pre>
+              );
+            }
+            if (block.type === "list") {
+              return (
+                <ul
+                  key={i}
+                  className="list-disc list-inside text-sm sm:text-base leading-relaxed text-muted-foreground"
+                >
+                  {block.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
               );
             }
             return (
@@ -153,13 +165,11 @@ const BlogPostPage = () => {
           {(() => {
             const filteredPosts = blogPosts
               .filter((post) => !post.draft)
-              .sort(
-                (a, b) =>
-                  new Date(b.date).getTime() - new Date(a.date).getTime(),
-              );
+              .sort((a, b) => b.id - a.id);
             const idx = filteredPosts.findIndex((p) => p.slug === slug);
             const prev = idx > 0 ? filteredPosts[idx - 1] : null;
-            const next = idx < filteredPosts.length - 1 ? filteredPosts[idx + 1] : null;
+            const next =
+              idx < filteredPosts.length - 1 ? filteredPosts[idx + 1] : null;
             return (
               <>
                 {prev ? (

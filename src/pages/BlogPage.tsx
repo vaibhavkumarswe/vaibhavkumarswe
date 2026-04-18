@@ -11,10 +11,16 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.2, 0, 0, 1] as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.2, 0, 0, 1] as const },
+  },
 };
 
-const filteredPosts = blogPosts.filter((post) => !post.draft).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const filteredPosts = blogPosts
+  .filter((post) => !post.draft)
+  .sort((a, b) => b.id - a.id);
 
 const BlogPage = () => {
   return (
@@ -41,7 +47,8 @@ const BlogPage = () => {
             Blog
           </h1>
           <p className="text-muted-foreground mt-3 text-sm sm:text-base max-w-2xl">
-            Writing about frontend engineering, performance, architecture, and lessons learned building products at scale.
+            Writing about frontend engineering, performance, architecture, and
+            lessons learned building products at scale.
           </p>
         </motion.div>
 
